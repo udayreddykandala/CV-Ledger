@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth.jsx";
-import { Blueprint, ErrorNote, Field } from "../ui.jsx";
+import { ErrorNote, Field } from "../ui.jsx";
 
 const POINTS = [
   { value: "One record", label: "per application" },
