@@ -5,14 +5,22 @@ main h1 { font-size: clamp(30px, 6vw, 46px) !important; }
   main[style*="grid-template-columns: 1.05fr 1fr"] {
     grid-template-columns: 1fr !important;
   }
+  /* Form first, pitch below — stacked in source order the marketing pane
+     pushes the login fields off the fold. */
+  main[style*="grid-template-columns: 1.05fr 1fr"] > section:last-child {
+    order: -1;
+    padding: 24px 20px 8px !important;
+    place-items: start !important;
+  }
   main[style*="grid-template-columns: 1.05fr 1fr"] > section:first-child {
     border-right: none !important;
-    border-bottom: 1px solid var(--color-divider) !important;
+    border-bottom: none !important;
+    border-top: 1px solid var(--color-divider) !important;
     padding: 36px 24px !important;
     gap: 28px !important;
   }
-  main[style*="grid-template-columns: 1.05fr 1fr"] > section:last-child {
-    padding: 36px 20px !important;
+  main[style*="grid-template-columns: 1.05fr 1fr"] h1 {
+    font-size: clamp(28px, 7vw, 40px) !important;
   }
   div[style*="grid-template-columns: 1fr 340px"],
   form[style*="grid-template-columns: 1.5fr 1fr"] {
