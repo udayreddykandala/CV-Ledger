@@ -16,7 +16,7 @@ services:
         generateValue: true
       - key: UPLOAD_DIR
         value: /data/uploads
-      - key: *
+      - key: ALLWOWED_ORIGINS
         sync: false   # set to your Vercel URL, e.g. https://cv-ledger.vercel.app
     disk:
       name: cv-uploads
