@@ -44,7 +44,10 @@ export default function Login() {
           justifyContent: "space-between",
           gap: 48,
         }}
-      >
+      <form
+          onSubmit={submit}
+          style={{ width: "100%", maxWidth: 400, padding: "34px 4px", display: "flex", flexDirection: "column", gap: 20 }}
+        >
         <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
           <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 22, letterSpacing: ".01em" }}>CV LEDGER</span>
           <span style={{ fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: "var(--color-accent-300)" }}>
@@ -103,7 +106,7 @@ export default function Login() {
             <span style={{ color: "var(--color-neutral-600)" }}>New here?</span>
             <Link to="/signup" style={{ fontFamily: "var(--font-heading)", fontSize: 15, letterSpacing: ".02em" }}>Create an account</Link>
           </div>
-        </Blueprint>
+        </form>
       </section>
     </main>
   );
