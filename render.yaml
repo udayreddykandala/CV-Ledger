@@ -8,7 +8,7 @@ services:
     plan: free
     healthCheckPath: /api/health
     envVars:
-      - key: DATABASE_URL
+      - key: postgresql+psycopg://neondb_owner:npg_Yb8ERGCS7qBW@ep-small-wave-ay48ipbo.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require
         fromDatabase:
           name: cv-ledger-db
           property: connectionString
@@ -16,7 +16,7 @@ services:
         generateValue: true
       - key: UPLOAD_DIR
         value: /data/uploads
-      - key: ALLOWED_ORIGINS
+      - key: *
         sync: false   # set to your Vercel URL, e.g. https://cv-ledger.vercel.app
     disk:
       name: cv-uploads
