@@ -1,26 +1,30 @@
 .l-h1,
 main h1 { font-size: clamp(30px, 6vw, 46px) !important; }
 
+/* ── Auth screens on mobile ──────────────────────────────────────
+   Brand mark, then the form. The hero headline and spec sheet are
+   desktop framing — on a phone they push the fields off the fold and
+   nobody scrolls past a login form to read a pitch. */
 @media (max-width: 1000px) {
   main[style*="grid-template-columns: 1.05fr 1fr"] {
     grid-template-columns: 1fr !important;
-  }
-  /* Form first, pitch below — stacked in source order the marketing pane
-     pushes the login fields off the fold. */
-  main[style*="grid-template-columns: 1.05fr 1fr"] > section:last-child {
-    order: -1;
-    padding: 24px 20px 8px !important;
-    place-items: start !important;
+    grid-template-rows: auto 1fr !important;
   }
   main[style*="grid-template-columns: 1.05fr 1fr"] > section:first-child {
     border-right: none !important;
-    border-bottom: none !important;
-    border-top: 1px solid var(--color-divider) !important;
-    padding: 36px 24px !important;
-    gap: 28px !important;
+    padding: 22px 24px 0 !important;
+    gap: 0 !important;
+    justify-content: flex-start !important;
+    min-height: auto !important;
   }
-  main[style*="grid-template-columns: 1.05fr 1fr"] h1 {
-    font-size: clamp(28px, 7vw, 40px) !important;
+  /* Hide the headline block and the three-cell spec sheet. */
+  main[style*="grid-template-columns: 1.05fr 1fr"] > section:first-child > div:nth-child(2),
+  main[style*="grid-template-columns: 1.05fr 1fr"] > section:first-child > div:nth-child(3) {
+    display: none !important;
+  }
+  main[style*="grid-template-columns: 1.05fr 1fr"] > section:last-child {
+    padding: 20px !important;
+    align-content: center !important;
   }
   div[style*="grid-template-columns: 1fr 340px"],
   form[style*="grid-template-columns: 1.5fr 1fr"] {
