@@ -1,4 +1,4 @@
-# Backend + database on Render. The frontend goes to Vercel (see README).
+# Backend on Render, Postgres on Neon, frontend on Vercel (see README).
 services:
   - type: web
     name: cv-ledger-api
@@ -6,23 +6,14 @@ services:
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     plan: free
+    region: ohio
     healthCheckPath: /api/health
     envVars:
-      - key: postgresql+psycopg://neondb_owner:npg_Yb8ERGCS7qBW@ep-small-wave-ay48ipbo.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require
-        fromDatabase:
-          name: cv-ledger-db
-          property: connectionString
+      - key: DATABASE_URL
+        sync: false
       - key: JWT_SECRET
         generateValue: true
       - key: UPLOAD_DIR
-        value: /data/uploads
-      - key: ALLWOWED_ORIGINS
-        sync: false   # set to your Vercel URL, e.g. https://cv-ledger.vercel.app
-    disk:
-      name: cv-uploads
-      mountPath: /data
-      sizeGB: 1
-
-databases:
-  - name: cv-ledger-db
-    plan: free
+        value: /tmp/uploads
+      - key: ALLOWED_ORIGINS
+        sync: false
